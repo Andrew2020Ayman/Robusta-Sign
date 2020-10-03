@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "proxyConfig": "src/proxy.conf.json",
             "outputPath": "dist/robusta-sign",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -130,7 +131,9 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          }
         }
       }
     }
