@@ -25,11 +25,10 @@ export class ApiService {
         } 
 
 
-      post(path: string, body: Object ,headers: HttpHeaders = new HttpHeaders()): Observable<any> {
+      post(path: string, body: Object): Observable<any> {
 
         return this.http.post(
           `${environment.api_url}${path}`,
-          {headers: headers},
           body,
           
         ).pipe(catchError(this.formatErrors));
