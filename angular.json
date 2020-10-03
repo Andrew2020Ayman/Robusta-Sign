@@ -71,8 +71,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "robusta-sign:build",
-              "proxyConfig": "src/proxy.conf.json"
+            "browserTarget": "robusta-sign:build"
           },
           "configurations": {
             "production": {
@@ -130,9 +129,7 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "proxyConfig": "src/proxy.conf.json"
-          }
+          "options": {}
         }
       }
     }

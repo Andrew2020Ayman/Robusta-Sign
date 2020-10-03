@@ -2,9 +2,15 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map} from 'rxjs/operators';
 import { ApiService } from './api.service';
-import { HttpResponse, HttpErrorResponse, } from '@angular/common/http';
+import { HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Login,Register } from '../models';
 
+ const headerDict = {
+  'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Headers': 'true',
+  'Access-Control-Allow-Credentials': 'true',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+} 
 
 @Injectable()
 export class AuthenticationService  implements OnInit{
@@ -18,14 +24,16 @@ export class AuthenticationService  implements OnInit{
   }
   
   login(login:Login): Observable<any> {
-    console.log("login from auth");
+  
+    let headers  = new HttpHeaders(headerDict);
      return this.apiService
-      .post('/auth/login', login)
+      .post('/auth/login',login,headers)
       .pipe(map(data=>data)); 
   } 
 register(register:Register):Observable<any>{
+  let headers  = new HttpHeaders(headerDict);
     return this.apiService
-    .post('/auth/register', register )
+    .post('/auth/register',register,headers )
     .pipe(map(data=>data));
   }
   

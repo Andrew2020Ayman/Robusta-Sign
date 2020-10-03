@@ -5,10 +5,15 @@ import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
+const headers = new HttpHeaders()
+            .set("X-Access-Control-Allow-Origin", "*");
 
 @Injectable()
 export class ApiService {
     constructor(private http: HttpClient) { }
+
+    
+
 
     private formatErrors(error: any) {
         return throwError(error.error);
@@ -20,16 +25,11 @@ export class ApiService {
         } 
 
 
-      post(path: string, body: Object): Observable<any> {
+      post(path: string, body: Object ,headers: HttpHeaders = new HttpHeaders()): Observable<any> {
 
-        console.log(`${environment.api_url}${path}`);
-        
         return this.http.post(
           `${environment.api_url}${path}`,
-          function(res){        
-                  res.header("Access-Control-Allow-Origin", "*");
-                  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-                },
+          {headers: headers},
           body,
           
         ).pipe(catchError(this.formatErrors));
