@@ -26,7 +26,12 @@ export class ApiService {
         
         return this.http.post(
           `${environment.api_url}${path}`,
-          body
+          function(res){        
+                  res.header("Access-Control-Allow-Origin", "*");
+                  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+                },
+          body,
+          
         ).pipe(catchError(this.formatErrors));
       }
       
