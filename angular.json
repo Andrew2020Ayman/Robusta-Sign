@@ -126,8 +126,13 @@
               "devServerTarget": "robusta-sign:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "robusta-sign"
 }
