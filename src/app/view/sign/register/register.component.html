@@ -15,7 +15,7 @@
                             [ngClass]="{ 'is-invalid': RegForm.submitted && fullname.invalid }" [(ngModel)]="NewModel.name" #fullname="ngModel"
                             required>
                             <div class="invalid-feedback" *ngIf="RegForm.submitted && fullname.invalid">
-                            <p *ngIf="fullname.errors.required"> Error Name</p>
+                            <p *ngIf="fullname.errors.required"> Invalid Name</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -25,7 +25,7 @@
                             [ngClass]="{ 'is-invalid': RegForm.submitted && username.invalid }" [(ngModel)]="NewModel.username" #username="ngModel"
                             required>
                             <div class="invalid-feedback" *ngIf="RegForm.submitted && username.invalid">
-                            <p *ngIf="username.errors.required"> Error Username</p>
+                            <p *ngIf="username.errors.required"> Invalid Username</p>
                             </div>
                         </div>
             
@@ -33,9 +33,10 @@
 
                              <label for="email"> <i class="fad fa-envelope icon"></i> </label>
                             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Your Email"
+                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                             [ngClass]="{ 'is-invalid': RegForm.submitted && email.invalid }" [(ngModel)]="NewModel.email" #email="ngModel" required>
                             <div class="invalid-feedback" *ngIf="RegForm.submitted && email.invalid">
-                            <p *ngIf="email.errors.required"> Error Email</p>
+                            <p *ngIf="email.errors"> Invalid Email</p>
                             </div>
                         </div>
             
@@ -47,7 +48,7 @@
                             
                             required>
                             <div class="invalid-feedback" *ngIf="RegForm.submitted && password.invalid">
-                            <p  *ngIf="password.errors.required"> Error Password</p>
+                            <p  *ngIf="password.errors.required"> Invalid Password</p>
                             </div>
                             
             
@@ -75,7 +76,8 @@
         </div>
            
        
-    </div> 
+        </div> 
     </div>
     
 </div>
+<ngx-loading [show]="loading" [config]="config" ></ngx-loading>

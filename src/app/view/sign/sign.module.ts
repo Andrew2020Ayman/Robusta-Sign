@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+import { NgxLoadingModule } from 'ngx-loading';
 
 const routes: Routes = [
     {path: '',redirectTo: 'login', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         FormsModule,
+        NgxLoadingModule
     ],
     declarations: [LoginComponent,RegisterComponent]
 })
