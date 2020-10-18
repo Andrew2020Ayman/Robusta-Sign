@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href   https://Andrew2020Ayman.github.io/Robusta-Sign/ && angular-cli-ghpages --branch  gh-pages"
+    "deploy": "ng build --prod --base-href   https://Andrew2020Ayman.github.io/SignForm/ && angular-cli-ghpages --branch  gh-pages"
   },
   "private": true,
   "dependencies": {
